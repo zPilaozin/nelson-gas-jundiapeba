@@ -95,7 +95,7 @@ const tl = gsap.timeline({
     trigger: ".scroll-track",
     start: "top top",
     end: "bottom bottom",
-    scrub: 0.7, // Reduced from 1.2 for snappier, faster transitions
+    scrub: 1.5, // Increased for premium, fluid floaty animation
   }
 });
 
