@@ -93,7 +93,7 @@ const tl = gsap.timeline({
     trigger: ".scroll-track",
     start: "top top",
     end: "bottom bottom",
-    scrub: 1.2, // Smooth interpolation
+    scrub: 0.7, // Reduced from 1.2 for snappier, faster transitions
   }
 });
 

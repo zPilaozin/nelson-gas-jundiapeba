@@ -41,7 +41,7 @@ body {
 }
 
 .scroll-track {
-  height: 800vh; /* Increased for smoother parallax & extra content */
+  height: 400vh; /* Decreased for faster transitions and less swipe fatigue */
 }
 
 /* --- Particles & Background Effects --- */
@@ -521,10 +521,8 @@ body {
 
 /* Content Panels */
 .content-panel {
-  position: absolute; 
-  top: 0; left: 0; right: 0; bottom: 0;
-  margin: auto;
-  height: fit-content;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%; max-width: 650px;
   text-align: center; opacity: 0; visibility: hidden; padding: 0 2rem;
 }
@@ -804,9 +802,9 @@ p { font-size: 1.4rem; line-height: 1.6; opacity: 0.8; }
     opacity: 0.5;
   }
   
-  .content-panel { top: auto; bottom: 8%; left: 0; right: 0; margin: 0 auto; padding: 0 1.5rem; }
-  .hero-panel { top: 0; bottom: 0; margin: auto; }
-  .footer-panel { top: 0; bottom: 0; margin: auto; }
+  .content-panel { top: 85%; transform: translate(-50%, -50%); padding: 0 1.5rem; }
+  .hero-panel { top: 50%; }
+  .final-scene-panel { top: 50%; }
   .review-card { width: 280px; }
   .counter-value { font-size: 3rem; }
 }
