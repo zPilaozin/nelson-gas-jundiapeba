@@ -773,6 +773,8 @@ p { font-size: 1.4rem; line-height: 1.6; opacity: 0.8; }
 /* Responsive Styles */
 @media (max-width: 768px) {
   /* Extreme Performance Optimization for Mobile */
+  body { background-color: #000000; } /* Pitch black to hide video borders */
+  
   .particles-container, .heat-distortion-overlay, .water-ripple, .fluid-streak, .ripple-ring, .gas-glow, .water-glow, .product-glow {
     display: none !important;
     animation: none !important;
@@ -791,8 +793,8 @@ p { font-size: 1.4rem; line-height: 1.6; opacity: 0.8; }
   .fab-whatsapp svg { width: 30px; height: 30px; }
   
   /* Fix centering and sizing for mobile products */
-  .gas-img { height: 50vh !important; max-width: 90vw !important; filter: none !important; } 
-  .water-img { height: 45vh !important; max-width: 90vw !important; object-position: center bottom; filter: none !important; }
+  .gas-img { height: 50vh !important; max-width: 90vw !important; filter: none !important; mix-blend-mode: normal !important; } 
+  .water-img { height: 45vh !important; max-width: 90vw !important; object-position: center bottom; filter: none !important; mix-blend-mode: normal !important; }
   
   /* Fix Hero background image centering and disable heavy animation to prevent lag */
   .hero-bg-img {

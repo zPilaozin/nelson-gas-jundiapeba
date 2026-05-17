@@ -78,7 +78,8 @@ if ('scrollRestoration' in history) {
 window.scrollTo(0, 0);
 
 // Setup GSAP Defaults
-gsap.set(".gas-panel, .water-panel, .footer-panel", { autoAlpha: 0 });
+gsap.set(".content-panel, .product-wrapper", { xPercent: -50, yPercent: -50 });
+gsap.set(".gas-panel, .water-panel, .final-scene-panel", { autoAlpha: 0 });
 gsap.set(".gas-wrapper", { scale: 0.3, autoAlpha: 0, y: "15vh", rotationY: -45 });
 gsap.set(".water-wrapper", { scale: 0.3, autoAlpha: 0, y: "15vh", rotationZ: -15 });
 gsap.set(".fire-effect, .water-effect", { autoAlpha: 0 });
