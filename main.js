@@ -77,18 +77,18 @@ if ('scrollRestoration' in history) {
 }
 window.scrollTo(0, 0);
 
+let isMobile = window.innerWidth < 768;
+window.addEventListener('resize', () => { if ((window.innerWidth < 768) !== isMobile) location.reload(); });
+
 // Setup GSAP Defaults
 gsap.set(".content-panel, .product-wrapper", { xPercent: -50, yPercent: -50, x: 0, y: 0 });
 gsap.set(".gas-panel, .water-panel", { autoAlpha: 0 });
 gsap.set(".final-scene-panel", { autoAlpha: 0, y: "10vh" });
-gsap.set(".gas-wrapper", { scale: 0.3, autoAlpha: 0, y: "15vh", rotationY: -45 });
-gsap.set(".water-wrapper", { scale: 0.3, autoAlpha: 0, y: "15vh", rotationZ: -15 });
+gsap.set(".gas-wrapper", { scale: 0.3, autoAlpha: 0, y: "15vh", rotationY: isMobile ? 0 : -45 });
+gsap.set(".water-wrapper", { scale: 0.3, autoAlpha: 0, y: "15vh", rotationZ: isMobile ? 0 : -15 });
 gsap.set(".fire-effect, .water-effect", { autoAlpha: 0 });
 // Initial state for review cards to ensure GSAP can animate them in
 gsap.set(".review-card", { opacity: 0, y: 50 });
-
-let isMobile = window.innerWidth < 768;
-window.addEventListener('resize', () => { isMobile = window.innerWidth < 768; });
 
 const tl = gsap.timeline({
   scrollTrigger: {
@@ -117,7 +117,7 @@ tl.to(".hero-panel", { autoAlpha: 0, y: "-10vh", duration: 1 })
   .to(".gas-wrapper", { 
     scale: isMobile ? 0.9 : 1.1, 
     autoAlpha: 1, 
-    y: 0, 
+    y: () => isMobile ? "-20vh" : 0, 
     rotationY: 0, // Rotates into full view
     duration: 2 
   }, "<0.5")
@@ -125,9 +125,9 @@ tl.to(".hero-panel", { autoAlpha: 0, y: "-10vh", duration: 1 })
   // Move Gas to side and rotate slightly for depth
   .to(".gas-wrapper", { 
     x: () => isMobile ? 0 : gasDesktopX, 
-    y: () => isMobile ? "-15vh" : 0,
-    rotationY: 15, // 3D depth rotation
-    rotationZ: 5,
+    y: () => isMobile ? "-20vh" : 0,
+    rotationY: () => isMobile ? 0 : 15, // 3D depth rotation only on desktop
+    rotationZ: () => isMobile ? 0 : 5,
     duration: 2 
   })
   .to(".gas-panel", { 
@@ -156,7 +156,7 @@ tl.to(".hero-panel", { autoAlpha: 0, y: "-10vh", duration: 1 })
   .to(".water-wrapper", { 
     scale: isMobile ? 0.9 : 1.1, 
     autoAlpha: 1, 
-    y: 0, 
+    y: () => isMobile ? "-20vh" : 0, 
     rotationZ: 0, // Straightens out
     duration: 2 
   }, "-=1")
@@ -164,9 +164,9 @@ tl.to(".hero-panel", { autoAlpha: 0, y: "-10vh", duration: 1 })
   // Move Water to side with tilt parallax
   .to(".water-wrapper", { 
     x: () => isMobile ? 0 : waterDesktopX, 
-    y: () => isMobile ? "-15vh" : 0,
-    rotationZ: -8, // Slight tilt like pouring
-    rotationY: -10,
+    y: () => isMobile ? "-20vh" : 0,
+    rotationZ: () => isMobile ? 0 : -8, // Slight tilt like pouring only on desktop
+    rotationY: () => isMobile ? 0 : -10,
     duration: 2 
   })
   .to(".water-panel", { 

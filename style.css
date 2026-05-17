@@ -804,7 +804,7 @@ p { font-size: 1.4rem; line-height: 1.6; opacity: 0.8; }
     opacity: 0.5;
   }
   
-  .content-panel { top: 85%; transform: translate(-50%, -50%); padding: 0 1.5rem; }
+  .content-panel { top: 65%; transform: translate(-50%, -50%); padding: 0 1.5rem; }
   .hero-panel { top: 50%; }
   .final-scene-panel { top: 50%; }
   .review-card { width: 280px; }
